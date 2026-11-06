@@ -1,0 +1,19 @@
+tools после модификации: ['add', 'convert_temperature', 'get_weather']
+resources после модификации: ['entry-weather-example://weather-letter', 'info-excursion://Paris-trips', 'info-city://Astrakhan']
+
+=== Новый tool: convert_temperature ===
+  {'value': 100, 'from_unit': 'c', 'to_unit': 'f'} -> 100.0 градусов Цельсия = 212.0 градусов Фаренгейта
+  {'value': 32, 'from_unit': 'f', 'to_unit': 'c'} -> 32.0 градусов Фаренгейта = 0.0 градусов Цельсия
+  {'value': 300, 'from_unit': 'k', 'to_unit': 'c'} -> 300.0 Кельвинов = 26.85 градусов Цельсия
+  {'value': -40, 'from_unit': 'c', 'to_unit': 'f'} -> -40.0 градусов Цельсия = -40.0 градусов Фаренгейта
+  {'value': 10, 'from_unit': 'x', 'to_unit': 'c'} -> Неизвестная шкала: 'x' или 'c'. Доступны c, f, k.
+
+=== Новый resource: info-city://Astrakhan ===
+Астрахань — южный город на берегу Волги, центр Астраханской области.
+Известен Астраханским кремлём, лотосовыми полями в дельте Волги и астраханским арбузом.
+Климат засушливый, лето жаркое, зима короткая и мягкая.
+
+=== Обработка ошибок get_weather ===
+  'Paris'    -> is_error=False: Не удалось получить погоду из-за ошибки: ConnectTimeout. Попробуйте позже.
+  'Москва'   -> is_error=False: Город не найден.
+  ''         -> is_error=False: Город не найден.
